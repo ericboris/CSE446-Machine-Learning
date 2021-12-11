@@ -1,0 +1,19 @@
+\begin{itemize}
+    \item[] Show that $\widehat{W} = \left( X^T X + \lambda I \right)^{-1} X^T Y$.
+	\begin{align*}
+	    \widehat{W} 
+		&= \text{argmin}_{W \in \R^{d \times k}} \sum_{i=0}^{n} \| W^Tx_{i} - y_{i} \|^{2}_{2} + \lambda \|W\|_{F}^{2} \tag*{Given} \\
+		&= \text{argmin}_{W \in \R^{d \times k}} \sum_{j=0}^{n} \left[ \| Xw_j - Ye_j \|^{2} + \lambda \| w_j \|^{2} \right] \tag*{Given in hint} \\
+		&= \text{argmin}_{W \in \R^{d \times k}} \sum_{j=0}^{n} \left[ ( Xw_j - Ye_j )^T (Xw_j - Ye_j) + \lambda (w_j)^T (w_j) \right] \\
+	\end{align*}
+    \item[] {\bf Lemma 1}: $X^T X$ is positive since $z^T X^T X z = (X z)^T (X x) = \| Xz \|^2 \geq 0$ for all $z \in \R^{n}$.
+    \item[] {\bf Lemma 2}: $\lambda I$ is positive since $z^T \lambda I z = \lambda z^T z = \lambda \| z \|^2 > 0$ for all $z \in \R^{n} \ \backslash 0$ and $\lambda > 0$. 
+    \item[] {\bf Lemma 3}: $(X^T X + \lambda I)$ is invertible because by Lemma 1 and Lemma 2, it is postive.
+    \item[] Find the argmin by taking the derivative and setting equal to zero.
+	\begin{align*}
+	    \frac{\partial}{\partial w_j} \sum_{j=0}^{n} \left[ ( Xw_j - Ye_j )^T (Xw_j - Ye_j) + \lambda (w_j)^T (w_j) \right] &= 0 \\
+	    2X^T (Xw_j - Ye_j) + \lambda 2w_j &= 0 \\
+	    (X^T X + \lambda I)^{-1} X^T Ye_j &= wj \\
+	\end{align*}
+    \item[] Thus $$\boxed{ \widehat{W} = (X^T X + \lambda I)^{-1} X^T Y }$$
+\end{itemize}

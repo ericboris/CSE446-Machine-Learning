@@ -1,0 +1,9 @@
+{\bf Problem 1}
+\begin{enumerate}
+    \item {\bf True}. There are d columns in X and $k \leq d$, there are enough columns to project onto a k dimensional subspace using PCA.
+    \item {\bf False}. The columns of V are equal to the eigenvalues of $X^TX$.
+    \item {\bf False}. This would create meaningless clusters because it will result in single data point clusters with zero distance from the center of each cluster.
+    \item {\bf False}. Consider that $uIu^T=I$ and $vIv^T=I$ are distinct singular values of the identity matrix $I$ where $u$ and $v$ are distinct orthogonal matricies. 
+    \item {\bf False}. Consider that an $n \times n$ matrix has exactly one eigenvalue.
+    \item {\bf True}. Because the autoencoder has non-linear activation functions it can capture more variance than PCA's projection of the data onto a linear subspace.
+\end{enumerate}

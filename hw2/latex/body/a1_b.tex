@@ -1,0 +1,11 @@
+Prove by contradiction that $g(x) = \left( \sum_{i=1}^n \lvert x_i \lvert^{\frac{1}{3}} \right)^3$ is not a norm.
+\begin{itemize}
+    \item[] Assume that $g(x)$ is a norm. 
+    \item[] By the triangle inequality $g(x + y) = g(x) + g(y)$ for all $x, y \in \R^n$.
+    \item[] Let $x = [1, 0]^T$ and $y = [0, 1]^T$. 
+    \item[] Trivially, $x, y \in \R^n$.
+    \item[] $g(x + y) = (1 + 1)^3 = 8$
+    \item[] $g(x) + g(y) = 1^3 + 1^3 = 2$
+    \item[] $g(x + y) \neq g(x) + g(y)$
+\end{itemize}
+Thus, since $g(x)$ is a norm and the triangle inequality doesn't hold is a contradiction, $g(x)$ is not a norm.

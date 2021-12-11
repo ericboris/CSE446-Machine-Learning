@@ -1,0 +1,31 @@
+% 5.
+\section{}
+
+Find $E[\sqrt{n}(\mu_n - \mu)]$.
+\begin{align*}
+    E[\sqrt{n}(\mu_n - \mu)] &= E[\sqrt{n}(\mu_n - \mu)] \\
+	&= \sqrt{n} E[(\mu_n - \mu)] \tag*{By Linearity of Expectation} \\
+	&= \sqrt{n} (E[\mu_n] - E[\mu]) \\
+	&= \sqrt{n} (E[\mu_n] - \mu) \\
+	&= \sqrt{n} (E[(\frac{1}{n} \sum_{i=1}^n x_i)] - \mu) \\
+	&= \sqrt{n} ((\frac{1}{n} \sum_{i=1}^n E[x_i]) - \mu) \\
+	&= \sqrt{n} ((\frac{1}{n} \sum_{i=1}^n \mu) - \mu) \\
+	&= \sqrt{n} ((\frac{1}{n} n\mu) - \mu) \\
+	&= \sqrt{n} (\mu - \mu) \\
+	&= \sqrt{n} (0) \\
+	&= 0
+\end{align*}
+
+Find $Var(\sqrt{n}(\mu_n - \mu))$.
+\begin{align*}
+    Var(\sqrt{n}(\mu_n - \mu)) &= Var(\sqrt{n}(\mu_n - \mu)) \\ %TODO should be mu hat
+	&= (\sqrt{n})^2 Var(\mu_n - \mu) \\
+	&= n (Var(\mu_n) - Var(\mu)) \\
+	&= n (Var(\mu_n) - 0 \\
+	&= n Var(\frac{1}{n} \sum_{i=1}^n x_i) \\
+	&= n \frac{1}{n^2} \sum_{i=1}^n Var(x_i) \\
+	&= n \frac{1}{n^2} \sum_{i=1}^n \sigma^2 \\
+	&= n \frac{1}{n^2} n \sigma^2 \\
+	&= \sigma^2
+\end{align*}
+

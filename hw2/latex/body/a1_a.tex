@@ -1,0 +1,23 @@
+Prove that $\| x \| = f(x) = \left( \sum_{i=1}^n x_i^2 \right)^{\frac{1}{2}}$ is a norm.
+\begin{itemize}
+    \item Non-negativity: $\| x \| \geq 0$ for all $x_i \in \R^n$ since $x_i^2 \geq 0$ and $\| x \| = 0$ if and only if $x = 0$.
+    \item Absolute scalability: $\| ax \| = \lvert a \rvert \| x \|$ for all $a \in \R$ and $x \in \R^n$. 
+	\begin{align*}
+	    \| ax \| &= \left( \sum_{i=1}^n (ax_i)^2 \right)^{\frac{1}{2}} \\
+		&= \left( \sum_{i=1}^n a^2 x_i^2 \right)^{\frac{1}{2}} \\
+		&= \left(a^2 \sum_{i=1}^n x_i^2 \right)^{\frac{1}{2}} \\
+		&= \left( a^2 \right)^{\frac{1}{2}} \left( \sum_{i=1}^n x_i^2 \right)^{\frac{1}{2}} \\
+		&= \lvert a \rvert \left( \sum_{i=1}^n x_i^2 \right)^{\frac{1}{2}} \tag*{since $\left( a^2 \right)^{\frac{1}{2}} > 0$ for all $a \in \R \setminus 0$} \\
+		&= \lvert a \rvert \| x \|
+	\end{align*}
+    \item Triangle inequality: $\| x + y \| \leq \| x \| + \| y \|$ for all $x, \, y \in \R^n$. 
+	Let $\langle x, y \rangle$ be the inner product $x \cdot y = \sum_{i=1}^n x_i y_i$. 
+	Prove using Cauchy-Schwarz inequality, i.e. $\lvert \langle x, y \rangle \rvert^2 \leq \langle x, x \rangle \cdot \langle y, y \rangle$.
+	\begin{align*}
+	    \left( \| x + y \| \right)^2 &= \| x \|^2 + 2 \langle x, y \rangle + \| y \|^2 \\
+		&\leq \| x \|^2 + 2 \left( \| x \| \cdot \| y \| \right) + \| y \|^2 \\
+		&= \left( \| x \| + \| y \| \right)^2
+	\end{align*}
+	Thus $\| x + y \| \leq \| x \| + \| y \|$ since $\left( \| x + y \| \right)^2 = \left( \| x \| + \| y \| \right)^2$ and all are positive by non-negativity.
+\end{itemize}
+    

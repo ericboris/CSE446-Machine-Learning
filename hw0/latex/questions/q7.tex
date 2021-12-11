@@ -1,0 +1,28 @@
+% 7.
+\section{}
+
+Let H(x) be the be the CDF of Y. Find H(x).
+\begin{align*}
+    H(x) &= P(max X_i \leq x) \\
+	&= \prod_{i=1}^n P(X_i \leq x) \\
+	&= x^n
+\end{align*}
+
+Let h(x) be the PDF of Y. Find h(x).
+\begin{align*}
+    h(x) &= \frac{\,d}{\,dx} H(x) \\
+	&= \frac{\,d}{\,dx} (x^n) \\
+	&= n x^{n-1} \\
+\end{align*}
+
+Find E[Y].
+\begin{align*}
+    E[Y] &= E[max\{X_1, ... , X_n\}] \\
+	&= \int_0^1 x h(x) \,dx \\
+	&= \int_0^1 x (n x^{n-1}) \,dx \\
+	&= \int_0^1 n x^n \,dx \\
+	&= n \int_0^1 x^n \,dx \\
+	&= n [\frac{x^{n+1}}{n+1} |_0^1] \\ %TODO fix vertical bar
+	&= n [\frac{1}{n+1}] \\
+	&= \frac{n}{n+1}
+\end{align*}

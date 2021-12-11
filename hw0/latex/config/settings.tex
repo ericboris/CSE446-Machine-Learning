@@ -1,0 +1,29 @@
+% Set subsection to lowercase letters followed by a period(.).
+\renewcommand {\thesubsection}{\alph{subsection}.}
+
+% Set section to numeral followed by a period(.).
+\renewcommand {\thesection}{\arabic{section}.}
+
+% Left align the title.
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+\begin{flushleft}
+  \textbf{\@title}
+
+  \@author
+  
+  \@date
+\end{flushleft}\egroup
+}
+\makeatother
+
+% Set the section font size.
+\titleformat{\section}
+  {\normalfont\fontsize{10}{15}\bfseries}{\thesection}{1em}{}
+
+% Set the subsection font size.
+\titleformat{\subsection}
+  {\normalfont\fontsize{9}{15}\bfseries}{\thesubsection}{1em}{}
+
+% Set the location of images.
+\graphicspath{ {images/} }

@@ -1,0 +1,48 @@
+documentclass{article}
+\input{preamble/packages.tex}
+\input{preamble/settings.tex}
+
+\begin{document}
+\input{body/title.tex}
+% \input{body/guidelines.tex}
+
+\section*{Conceptual Questions}
+\noindent\rule{\textwidth}{1pt}\vspace{0.75mm}
+\input{body/q0.tex}
+
+\section*{Convexity and Norms}
+\noindent\rule{\textwidth}{1pt}\vspace{0.75mm}
+\input{body/q1.tex}
+
+\noindent\rule{\textwidth}{1pt}\vspace{0.75mm}
+\input{body/q2.tex}
+
+\noindent\rule{\textwidth}{1pt}\vspace{0.75mm}
+\input{body/q3.tex}
+
+\noindent\rule{\textwidth}{1pt}\vspace{0.75mm}
+\input{body/q4.tex}
+
+\section*{Lasso on a real dataset}
+\noindent\rule{\textwidth}{1pt}\vspace{0.75mm}
+\input{body/q5.tex}
+\lstinputlisting[language=Python]{body/p5.py}
+
+\noindent\rule{\textwidth}{1pt}\vspace{0.75mm}
+\input{body/q6.tex}
+\lstinputlisting[language=Python]{body/p6.py}
+
+\section*{Logistic Regression}
+\noindent\rule{\textwidth}{1pt}\vspace{0.75mm}
+\input{body/q7.tex}
+\lstinputlisting[language=Python]{body/p7.py}
+
+{\bf Additional files used for Problems 5-7}
+\lstinputlisting[language=Python]{body/DataManagement.py}
+\lstinputlisting[language=Python]{body/GradientDescent.py}
+\lstinputlisting[language=Python]{body/Lasso.py}
+\lstinputlisting[language=Python]{body/Performance.py}
+\lstinputlisting[language=Python]{body/StochasticGradientDescent.py}
+\lstinputlisting[language=Python]{body/Supplemental.py}
+
+\end{document}

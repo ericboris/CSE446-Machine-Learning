@@ -1,0 +1,29 @@
+{\bf Problem 7: Answers}
+
+\begin{enumerate}
+    \item See Problem 7: Code
+    \item See Problem 7: Code
+    \item See Problem 7: Code
+    \item 
+	\hfill
+	\begin{tabular}{ |c|c|c|c|c| }
+	    \multicolumn{5}{c}{Accuracy and Loss of Neural Networks (8 epochs)} \\
+	    \hline
+	    & \multicolumn{2}{c|}{Training} & \multicolumn{2}{c|}{Validation} \\
+	    \hline
+	    & Accuracy (\%) & Loss & Accuracy (\%) & Loss \\
+	    \hline
+	    RNN & 0.8987 & 0.2719 & 0.7695 & 0.5934 \\
+	    \hline
+	    GRU & 0.9305 & 0.1866 & 0.7993 & 0.6079 \\
+	    \hline
+	    LSTM & 0.9382 & 0.1677 & 0.7259 & 0.8714 \\
+	    \hline
+	\end{tabular}\hfill\mbox{}
+    \item Output each hidden state. That is, each word produces an output. Then we build a model around predicting the tag of each token from the exposed hidden states. 
+\end{enumerate}
+
+{\bf Problem 7: Code}
+\begin{quote}
+    \lstinputlisting[language=Python]{../code/hw4_p7.py}
+\end{quote}

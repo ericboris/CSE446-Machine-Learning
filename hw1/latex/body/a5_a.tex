@@ -1,0 +1,35 @@
+\begin{itemize}
+    \item Show that $\E_{\textrm{train}}[ \widehat{\epsilon}_{\textrm{train}}(f) ] = \epsilon(f)$.
+    \item[] 
+	\begin{align*}
+	    \E_{\textrm{train}}[ \widehat{\epsilon}_{\textrm{train}}(f) ] 
+		&=  \E_{\textrm{train}} \left[ \frac{1}{N_{\textrm{train}}} \sum_{(x, \, y)\in S_{\textrm{train}}} \left( f(x) - y \right)^2 \right] \tag*{Given} \\
+		&= \frac{1}{N_{\textrm{train}}} \, \E_{\textrm{train}} \left[  \sum_{(x, \, y)\in S_{\textrm{train}}} \left( f(x) - y \right)^2 \right] \tag*{By Linearity of Expectation} \\
+		&= \frac{1}{N_{\textrm{train}}} \, N_{\textrm{train}} \, \E_{(x,\, y) \sim \mathcal{D}} \left[  \left( f(x) - y \right)^2 \right] \tag*{Since the points in $S_{\textrm{train}}$ are iid} \\
+		&= \E_{(x,y) \sim \mathcal{D}} \left[ (f(x) -y)^2 \right] \\
+		&= \epsilon(f)
+	\end{align*}
+    \item Show that $\E_{\textrm{test}}[ \widehat{\epsilon}_{\textrm{test}}(f) ] = \epsilon(f)$.
+    \item[] 
+	\begin{align*}
+	    \E_{\textrm{test}}[ \widehat{\epsilon}_{\textrm{test}}(f) ] 
+		&=  \E_{\textrm{test}} \left[ \frac{1}{N_{\textrm{test}}} \sum_{(x, \, y)\in S_{\textrm{test}}} \left( f(x) - y \right)^2 \right] \tag*{Given} \\
+		&= \frac{1}{N_{\textrm{test}}} \, \E_{\textrm{test}} \left[  \sum_{(x, \, y)\in S_{\textrm{test}}} \left( f(x) - y \right)^2 \right] \tag*{By Linearity of Expectation} \\
+		&= \frac{1}{N_{\textrm{test}}} \, N_{\textrm{test}} \, \E_{(x,\, y) \sim \mathcal{D}} \left[  \left( f(x) - y \right)^2 \right] \tag*{Since the points in $S_{\textrm{test}}$ are iid} \\
+		&= \E_{(x,y) \sim \mathcal{D}} \left[ (f(x) -y)^2 \right] \\
+		&= \epsilon(f)
+	\end{align*}
+    \item Since $\E_{\textrm{train}}[ \widehat{\epsilon}_{\textrm{train}}(f) ] = \epsilon(f)$ and $\E_{\textrm{test}}[ \widehat{\epsilon}_{\textrm{test}}(f) ] = \epsilon(f)$, thus $$\boxed{ \E_{\textrm{train}}[ \widehat{\epsilon}_{\textrm{train}}(f) ] = \E_{\textrm{test}}[ \widehat{\epsilon}_{\textrm{test}}(f) ] = \epsilon(f) } $$
+    \item Show that $\E_{\textrm{test}}[ \widehat{\epsilon}_{\textrm{test}}(\widehat{f}) ] = \epsilon(\widehat{f})$.
+    \item[] 
+	\begin{align*}
+	    \E_{\textrm{test}}[ \widehat{\epsilon}_{\textrm{test}}(\widehat{f}) ] 
+		&=  \E_{\textrm{test}} \left[ \frac{1}{N_{\textrm{test}}} \sum_{(x, \, y)\in S_{\textrm{test}}} \left( \widehat{f}(x) - y \right)^2 \right] \tag*{Given} \\
+		&= \frac{1}{N_{\textrm{test}}} \, \E_{\textrm{test}} \left[  \sum_{(x, \, y)\in S_{\textrm{test}}} \left( \widehat{f}(x) - y \right)^2 \right] \tag*{By Linearity of Expectation} \\
+		&= \frac{1}{N_{\textrm{test}}} \, N_{\textrm{test}} \, \E_{(x,\, y) \sim \mathcal{D}} \left[  \left( \widehat{f}(x) - y \right)^2 \right] \tag*{Since the points in $S_{\textrm{test}}$ are iid} \\
+		&= \E_{(x,y) \sim \mathcal{D}} \left[ (\widehat{f}(x) -y)^2 \right] \\
+		&= \epsilon(\widehat{f})
+	\end{align*}
+    \item[] Thus, $$\boxed{ \E_{\textrm{test}}[ \widehat{\epsilon}_{\textrm{test}}(\widehat{f}) ] = \epsilon(\widehat{f}) } $$
+\end{itemize}
+

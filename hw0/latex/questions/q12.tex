@@ -1,0 +1,107 @@
+% 12.
+\section{}
+
+% 12.a.
+\subsection{}
+\begin{align*}
+    f(x, y) &= x^T A x + y^T B x + c \\
+	%
+	&= 
+	[x_1, ..., x_n] 
+	\begin{bmatrix} 
+	    a_{11} & ... & a_{1n} \\
+	    ... & ... & ... \\
+	    a_{n1} & ... & a_{nn}
+	\end{bmatrix}
+	\begin{bmatrix}
+	    x_1 \\
+	    ... \\
+	    x_n
+	\end{bmatrix}
+	+
+	[y_1, ..., y_n] 
+	\begin{bmatrix} 
+	    b_{11} & ... & b_{1n} \\
+	    ... & ... & ... \\
+	    b_{n1} & ... & b_{nn}
+	\end{bmatrix}
+	\begin{bmatrix}
+	    x_1 \\
+	    ... \\
+	    x_n
+	\end{bmatrix}
+	+
+	c \\
+	%
+	&= 
+	[\sum_{i=1}^n x_i A_{i1}, ..., \sum_{i=1}^n x_i A_{in}] 
+	\begin{bmatrix}
+	    x_1 \\
+	    ... \\
+	    x_n
+	\end{bmatrix}
+	+
+	[\sum_{i=1}^n y_i B_{i1}, ..., \sum_{i=1}^n y_i B_{in}] 
+	\begin{bmatrix}
+	    x_1 \\
+	    ... \\
+	    x_n
+	\end{bmatrix}
+	+
+	c \\
+	&= \sum_{j=1}^n x_j [\sum_{i=1}^n x_i A_{ij}] + \sum_{j=1}^n x_j [\sum_{i=1}^n y_i B_{ij}] + c \\
+	&= \sum_{j=1}^n x_j [\sum_{i=1}^n x_i A_{ij} + \sum_{i=1}^n y_i B_{ij}] + c \\
+	&= \sum_{j=1}^n x_j [\sum_{i=1}^n [x_i A_{ij} + y_i B_{ij}]] + c \\
+\end{align*}
+
+% 12.b.
+\subsection{}
+
+Find $\frac{\partial f(x, y)}{\partial x_k}$ for $1 \leq k \leq n$.
+\begin{align*}
+    \frac{\partial f(x, y)}{\partial x_k} &= \frac{\partial}{\partial x_k} (\sum_{j=1}^n x_j [\sum_{i=1}^n [x_i A_{ij} + y_i B_{ij}]] + c) \\
+	&= \frac{\partial}{\partial x_k} \sum_{j=1}^n x_j [\sum_{i=1}^n [x_i A_{ij} + y_i B_{ij}]] \\
+	&= \sum_{j=1}^n (\frac{\partial}{\partial x_k}(x_j) (\sum_{i=1}^n (x_i A_{ij} + y_i B_{ij}))) + (\sum_{j=i}^n x_j (\frac{\partial}{\partial x_k} (\sum_{i=1}^n (x_i A_{ij} + y_i B_{ij})))) \\
+	&= (0 + ... + 0 + \frac{\partial}{\partial x_k}(x_k)(\sum_{i=1}^n (x_i A_{ik} + y_i B_{ik})) + 0 + ... + 0) + (\sum_{j=i}^n x_j (\sum_{i=1}^n \frac{\partial}{\partial x_x} (x_i A_{ij} + y_i B_{ij}))) \\
+	&= \frac{\partial}{\partial x_k}(x_k) (\sum_{i=1}^n (x_i A_{ik} + y_i B_{ik})) + (\sum_{j=1}^n x_j (\sum_{i=1}^n \frac{\partial}{\partial x_k} (x_i A_{ij}) + 0)) \\
+	&= \frac{\partial}{\partial x_k}(x_k) (\sum_{i=1}^n (x_i A_{ik} + y_i B_{ik})) + (\sum_{j=1}^n x_j (0 + ... + 0 + \frac{\partial}{\partial x_k} (x_k A_{kj}) + 0 + ... + 0)) \\
+	&= \sum_{i=1}^n (x_i A_{ik} + y_i B_{ik}) + \sum_{j=1}^n x_j A_{kj}
+\end{align*}
+
+Express $\nabla_x f(x, y)$ in index notation.
+\begin{align*}
+    \nabla_x f(x, y) &= [\frac{\partial f(x, y)}{\partial x_1} , ... , \frac{\partial f(x, y)}{\partial x_n}] \\
+	&= [(\sum_{i=1}^n (x_i A_{i1} + y_i B_{i1}) + \sum_{j=1}^n x_j A_{1j}) , ... , (\sum_{i=1}^n (x_i A_{in} + y_i B_{in}) + \sum_{j=1}^n x_j A_{nj})]
+\end{align*}
+
+Express $\nabla_x f(x, y)$ in vector notation.
+\begin{align*}
+    \nabla_x f(x, y) &= (A + A^T)x + B^T y
+\end{align*}
+
+% 12.c.
+\subsection{}
+Find $\frac{\partial f(x, y)}{\partial y_k}$ for $1 \leq k \leq n$.
+\begin{align*}
+    \frac{\partial f(x, y)}{\partial y_k} &= \frac{\partial}{\partial y_k} (\sum_{j=1}^n x_j [\sum_{i=1}^n [x_i A_{ij} + y_i B_{ij}]] + c) \\
+	&= \frac{\partial}{\partial y_k} \sum_{j=1}^n x_j [\sum_{i=1}^n [x_i A_{ij} + y_i B_{ij}]] + 0 \\
+	&= (\sum_{j=1}^n \frac{\partial}{\partial y_k} (x_j) (\sum_{i=1}^n (x_i A_{ij} + y_i B_{ij}))) + (\sum_{j=1}^n x_j (\frac{\partial}{\partial y_k} \sum_{i=1}^n (x_i A_{ij} + y_i B_{ij}))) \\
+	&= 0 + (\sum_{j=1}^n x_j  (\sum_{i=1}^n \frac{\partial}{\partial y_k} (x_i A_{ij} + y_i B_{ij})) \\
+	&= \sum_{j=1}^n x_j (\sum_{i=1}^n (0 + \frac{\partial}{\partial y_k} (y_i B_{ij}))) \\
+	&= \sum_{j=1}^n x_j (\sum_{i=1}^n (0 + ... + 0 + \frac{\partial}{\partial y_k} (y_k B_{kj}))) \\ 
+	&= \sum_{j=1}^n x_j B_{kj} 
+\end{align*}
+
+Express $\nabla_y f(x, y)$ in index notation.
+\begin{align*}
+    \nabla_y f(x, y) &= [\frac{\partial f(x, y)}{\partial y_1} , \frac{\partial f(x, y)}{\partial y_2}, ... , \frac{\partial f(x, y)}{\partial y_n}] \\
+	&= [(\sum_{j=1}^n x_j B_{1j}) , (\sum_{j=1}^n x_j B_{2j}), ... , (\sum_{j=1}^n x_j B_{nj})]
+\end{align*}
+
+Express $\nabla_y f(x, y)$ in index notation.
+\begin{align*}
+    \nabla_y f(x, y) &= Bx
+\end{align*}
+
+
+

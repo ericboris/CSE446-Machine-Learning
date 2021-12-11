@@ -1,0 +1,8 @@
+2. Consider a model consisting of random variables $X, Y$ and $Z$: $Y = Xw + Z$, where $Z \sim U[-0.5, 0.5]$. Assume that $Z$ is a noise here (i.e. the independence holds) and $w \in \mathbb{R}$ is a fixed parameter (i.e. it is not random).
+
+\begin{enumerate}
+    \item \points{5} Derive the probability density function (pdf) of $Y$ conditioning on $\{X = x\}$.
+	\input{body/a2_a.tex}
+    \item \points{5} Assume that you have $n$ points of training data $\{(X_{1},Y_{1}), (X_{2}, Y_{2}), \cdots, (X_{n}, Y_{n})\}$ generated i.i.d in the above setting. Derive a maximum likelihood estimator of $w$ for the conditional distribution of $Y$ conditioning on $\{X = x\}$. Assume that $X_{i} > 0$ for all $i = 1, \ldots, n$ and note that MLE for this case may not be unique and you are required to report only one particular estimate.
+	\input{body/a2_b.tex}
+\end{enumerate}

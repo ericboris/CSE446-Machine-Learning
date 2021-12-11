@@ -1,0 +1,19 @@
+Derive the gradient $\nabla_w J(w,b)$.
+\begin{align*}
+    J(w, b) &= \frac{1}{n} \sum_{i=1}^n \textrm{log} \left( 1 + \textrm{exp} \left( -y_i \left( b + x_i^T w \right) \right) \right) + \lambda \| w \|_2^2 \\
+        &= \frac{1}{n} \sum_{i=1}^n \textrm{log} \left( 1 + \left( \frac{1}{\mu_i (w, b)} - 1 \right) \right) + \lambda \| w \|_2^2 \\ 
+        &= \frac{1}{n} \sum_{i=1}^n \textrm{log} \left( \frac{1}{\mu_i (w, b)} \right) + \lambda \| w \|_2^2 \\
+    \nabla_w J(w, b) &= \nabla_w \frac{1}{n} \sum_{i=1}^n \textrm{log} \left( \frac{1}{\mu_i (w, b)} \right) + \nabla_w \lambda \| w \|_2^2 \\ 
+        &= \frac{1}{n} \sum_{i=1}^n \mu_i(w, b) \left( \frac{1}{\mu_i(w, b)} - 1 \right)(-y_i)(x_i) + 2 \lambda w \\
+        &= \frac{1}{n} \sum_{i=1}^n \left( \mu_i(w, b) - 1 \right)(y_i)x_i + 2 \lambda w
+\end{align*}
+Thus, $$ \boxed{ \nabla_w J(w,b) = \frac{1}{n} \sum_{i=1}^n \left( \mu_i(w, b) - 1 \right)(y_i)x_i + 2 \lambda w } $$
+
+Derive the gradient $\nabla_b J(w, b)$.
+\begin{align*}
+        J(w, b) &= \frac{1}{n} \sum_{i=1}^n \textrm{log} \left( \frac{1}{\mu_i (w, b)} \right) + \lambda \| w \|_2^2 \\
+        \nabla_b J(w, b) &= \nabla_b \frac{1}{n} \sum_{i=1}^n \textrm{log} \left( \frac{1}{\mu_i (w, b)} \right) + \nabla_b \lambda \| w \|_2^2 \\ 
+            &= \frac{1}{n} \sum_{i=1}^n \mu_i(w, b) \left( \frac{1}{\mu_i(w, b)} - 1 \right) (- y_i) + 0 \\
+            &= \frac{1}{n} \sum_{i=1}^n \left( \mu_i(w, b) - 1 \right) y_i
+\end{align*}   
+Thus, $$ \boxed{ \nabla_b J(w, b) = \frac{1}{n} \sum_{i=1}^n \left( \mu_i(w, b) - 1 \right) y_i } $$.

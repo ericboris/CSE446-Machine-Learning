@@ -1,0 +1,13 @@
+\begin{enumerate}
+    \item
+	{\bf Bias} -- The measure of how closely our model matches the best possible estimator, with lower values representing a closer match. \\
+	{\bf Variance} -- The measure of how much our model changes over i.i.d subsets of training data from the true probability distribution with lower values representing lower average differences. \\
+	{\bf Bias-Variance Tradeoff} -- Together, bias and variance represent the two types of learning error. However, one cannot usually be reduced completly without increasing the other. This is because lowering bias tends to overfit the model increasing the variance and lowering variance reduces fit increasing bias. Thus, an optimal model balances bias and variance accepting some degree of error. 
+    \item {\bf Increased complexity} leads to {\bf decreased bias} and {\bf increased variance}. {\bf Decreased complexity} leads to {\bf increased bias} and {\bf decreased variance}.
+    \item {\bf False} -- Typically more data allows learning better estimator parameters which reduce bias. 
+    \item {\bf True} -- Typically more data reduces variance if the estimator is well chosen. However, if the estimator is poor, then this might not be the case.
+    \item {\bf False} -- Too few features can cause our model to generalize worse on unseen data.
+    \item {\bf Neither} -- We should use validation data to tune hyperparameters. However, if for some reason this is not an option, then we should use training data to tune hyperparameters. {\bf Never} use test data to construct a model.
+    \item {\bf False} -- Typically the model has lower training error on training data than the test error on test data since, although the model is tuned to training data with the assumption that test data is like training data, this isn't always the case and thus test error is likely higher than training error.
+    \item {\bf False} -- L2 Regularization reduces the impact of features on the model to reduce overfitting. It does not, however, actually remove or limit the number of features that the model has. 
+\end{enumerate}

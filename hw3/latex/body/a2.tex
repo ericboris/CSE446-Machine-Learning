@@ -1,0 +1,11 @@
+{\bf Problem 2}
+\begin{quote}
+    Show that $K(x, x') = e^{-\frac{(x-x')^2}{2}}$ is a kernel function for this feature map, i.e., $\phi(x) \cdot \phi(x') = e^{-\frac{(x-x')^2}{2}}$.
+
+    \begin{align*}
+	\phi(x) \cdot \phi(x') &= \left( \sum_{i=0}^{\infty} \frac{1}{\sqrt{i!}} e^{- \frac{x^2}{2}} x^i \right) \left( \sum_{i=0}^{\infty} \frac{1}{\sqrt{i!}} e^{- \frac{x'^2}{2}} x'^i \right) \\
+	    &= e^{- \frac{x^2 + x'^2}{2}} \sum_{i=0}^{\infty} \left( \frac{1}{i!} (xx')^i \right) \\
+	    &= e^{- \frac{x^2 + x'^2}{2}} e^{xx'} \tag*{Talor Series of $e^x = \sum_{i=0}^{\infty} \frac{x^i}{i!}$} \\
+	    &= e^{- \frac{(x - x')^2}{2}}
+    \end{align*}
+\end{quote}

@@ -1,0 +1,34 @@
+% 2.
+\section{}
+
+% 2.a.
+\subsection{}
+
+Show that if $E[Y|X=x]=x$ that $Cov(X, Y) = E[(X - E[X])^2]$.
+\begin{align*}
+    Cov(X, Y) &= E[X, Y] - E[X]E[Y] \\
+	&= \sum_x P(X=x) E[XY | X] \\
+	&= \sum_x P(X=x) x E[Y | X] \\
+	&= \sum_x P(X=x) x^2 \tag*{Law of total expectation}\\
+	&= E[X^2] - E[X]E[Y] \\
+	&= E[X^2] - E[X] \sum_x P(X=x) E[Y | X=x] \\
+	&= E[X^2] - E[X] \sum_x P(X=x) x \\
+	&= E[X^2] - E[X]E[X] \tag*{Law of total expectation} \\
+	&= E[X^2] - E[X]^2 \\
+	&= E[(X - E[X])^2]
+\end{align*}
+
+% 2.b.
+\subsection{}
+
+Show that if X and Y are independent that $Cov(X, Y) = 0$.
+\begin{align*}
+Cov(X,Y)
+    &= E[(X - E[X])(Y - E[Y])] \\
+    &= E[XY] - E[X]E[Y] \\
+    &= \sum_{x,y}P(X=x, Y=y) xy  - E[X]E[Y] \\
+    &= \sum_{x,y}P(X=x)P(Y=y) xy  - E[X]E[Y] \\
+    &= (\sum_x P(X=x) x) (\sum_y P(Y=y) y) - E[X]E[Y] \\
+    &= E[X]E[Y] - E[X]E[Y] \\
+    &= 0 \\ 
+\end{align*}

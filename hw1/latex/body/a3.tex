@@ -1,0 +1,33 @@
+3.
+\begin{enumerate}
+    \item 
+	Find the log likelihood function $l(x_i)$ for $1 \leq i \leq n$ of the Possion distribution.
+	\begin{align*}
+	    l(x_i) &= \ln \left( \prod_{i=1}^n {\rm e}^{-\lambda} \frac{\lambda^{x_i}}{x_i!} \right) \\
+		&= \sum_{i=1}^n \ln \left( {\rm e}^{-\lambda} \frac{\lambda^{x_i}}{x_i!} \right) \\
+		&= \sum_{i=1}^n \left( \ln\left( {\rm e}^{-\lambda} \right) + \ln\left( \lambda^{x_i} \right) - \ln\left( x_i! \right) \right) \\
+		&= \sum_{i=1}^n \left( -\lambda + x_i \ln\left(\lambda \right) - \ln\left( x_i! \right) \right) \\
+		&= -n \lambda + \ln\left(\lambda \right) \sum_{i=1}^n x_i - \sum_{i=1}^n x_i ! 
+	\end{align*}
+	Take the derivative of the log likelihood function $l(x_i)$ with respect to $\lambda$.
+	\begin{align*}
+	    \frac{{\rm d}}{{\rm d}\lambda} l(x_i) &= \frac{{\rm d}}{{\rm d}\lambda} \left( -n \lambda + \ln\left(\lambda \right) \sum_{i=1}^n x_i - \sum_{i=1}^n x_i ! \right) \\
+		&= - \frac{{\rm d}}{{\rm d}\lambda} (n \lambda) + \frac{{\rm d}}{{\rm d}\lambda} \left( \ln(\lambda) \sum_{i=1}^n x_i \right) - \frac{{\rm d}}{{\rm d}\lambda} \left( \sum_{i=1}^n \ln(x_i) \right) \\
+		&= - (n) + \left( \frac{1}{\lambda} \sum_{i=1}^n x_i \right) - (0) \\
+		&= - n + \frac{1}{\lambda} \sum_{i=1}^n x_i
+	\end{align*}
+	Find the maximum likelihood estimator $l_{{\rm MLE}}$.
+	\begin{align*}
+	    \frac{{\rm d}}{{\rm d}\lambda} l(x_i) &= 0 \\
+	    - n + \frac{1}{\lambda} \sum_{i=1}^n x_i &= 0 \\
+	    \frac{1}{\lambda} \sum_{i=1}^n x_i &= n \\
+	    \frac{1}{\lambda} &= \frac{n}{\sum_{i=1}^n x_i} \\
+	    \lambda &= \frac{1}{n} \sum_{i=1}^n x_i
+	\end{align*}
+	Thus, when $n=5$ $$\boxed{ l_{{\rm MLE}} = \frac{1}{5} \sum_{i=1}^5 x_i }$$
+    \item
+	When $n=6$ $$\boxed{ l_{{\rm MLE}} = \frac{1}{6} \sum_{i=1}^6 x_i }$$
+    \item
+	$l_{{\rm MLE, 5}} = \frac{1}{5} \sum_{i=1}^5 x_i = \frac{1}{5} \sum [2, 0, 1, 1, 2] = \boxed{\frac{6}{5}}$ \\ 
+	$l_{{\rm MLE, 6}} = \frac{1}{6} \sum_{i=1}^6 x_i = \frac{1}{6} \sum [2, 0, 1, 1, 2, 4] = \frac{10}{6} = \boxed{\frac{5}{3}}$
+\end{enumerate}

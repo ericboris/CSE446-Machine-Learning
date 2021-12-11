@@ -1,0 +1,145 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amsfonts, amsthm, amssymb}  % Some math symbols
+\usepackage[utf8x]{inputenc}
+\usepackage{fullpage}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{etoolbox}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{lipsum}
+\usepackage{sectsty}
+\usepackage{verbatim}
+\usetikzlibrary{decorations,arrows,shapes}
+
+%% Define the title contents
+\title{}
+\author{}
+\date{}
+
+%% Set the size of the section header
+\sectionfont{\fontsize{11}{12}\selectfont}
+
+%% Set the size and format of the subsection header
+\subsectionfont{\fontsize{11}{12}\selectfont}
+\renewcommand{\thesubsection}{\thesection (\alph{subsection})}
+
+%% Set the size and format of the subsubsection header
+\subsubsectionfont{\fontsize{9}{10}\selectfont}
+\renewcommand{\thesubsubsection}{\roman{subsubsection}}
+
+%% Define Real and Rational numbers symbol
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+%% Redefine rightarrow to imp
+\def\imp{\rightarrow}
+
+%% Redefine overline to ol
+\def\ol{\overline}
+
+%% Redefine leftrightarrow to lra
+\def\lra{\leftrightarrow}
+
+% Redefine setminus to sm
+\def\sm{\setminus}
+
+%% Define a nested environment using level for formal proof
+\newenvironment{level}%
+{\addtolength{\itemindent}{2em}}%
+{\addtolength{\itemindent}{-2em}}
+
+
+
+%% Set enumerate sub list to use numbers instead of letters
+\setlist[enumerate]{label*=\arabic*.}
+
+%% Define custom style
+\lstdefinestyle{myCustomMatlabStyle}{
+  language=Java,
+  numbersep=10pt,
+  tabsize=4,
+  showspaces=false,
+  showstringspaces=false
+}
+
+%% Define the default code language to Java
+\lstset{basicstyle=\small, style=myCustomMatlabStyle}
+
+%%--- Begin the Document ---%%
+
+\begin{document}
+
+\section*{P1}
+
+\noindent\textcolor[RGB]{220,220,220}{\rule{\linewidth}{0.8pt}}
+
+\subsection*{Claim:} 
+A connected graph G with m $\geq$ n edges can have it's edges oriented such that the degree of every vertex is at least 1. We use DFS to find a vertex u that is part of a cycle. We use DFS again starting from u. To every pair of vertices \{v, w\} encountered after u we assign directed outgoing edges (v, w). A special case is made for u on the first loop iteration. Only the first vertex x that u encounteres receives a directed incoming edge (u, x). All other edges from u on the first iteration are left undirected.
+
+\subsection*{Algorithm:} 
+\begin{lstlisting}[basicstyle=\small]
+// Where G is a connected graph with m >= n edges
+OneIncoming(G):
+	// Use modifiedDFS from HW2 P3a to find the vetices of a cycle in G
+	Set V to modifiedDFS(G)
+	Set v such that v is the first vertex in V
+	// Output the orientation of edges of G
+	// such that every vertex has at least one incoming edge
+	Orient(v):
+		Initialize S to be a stack with one element s
+		Set b to true representing the first iteration
+		Set L to be an empty list of directed edges
+		While S is not empty
+			Take a node u from S
+			If Explored[u] = false then
+				Set Explored[u] = true
+				// Every iteration but the first
+				If b is false then 
+					For each edge (u, v) incident to u
+						Add v to the stack S
+						// All new edges are outgoing
+						If directed edge (v, u) not in L 
+							Add directed edge (u, v) to L
+						EndIf
+					EndFor
+				// Handle the first iteration differently
+				Else if b is true then
+					For each edge (u, v) incident to u
+						Add v to the stack S
+						// Only the first edge is outgoing
+						If b is true then 
+							Set b to false
+							Add directed edge (u, v) to L
+						EndIf
+					EndFor
+				EndIf
+			EndIf
+		EndWhile
+		Return L
+\end{lstlisting}
+
+\noindent\textcolor[RGB]{220,220,220}{\rule{\linewidth}{0.8pt}}
+\linebreak
+
+\subsection*{Claim:} 
+The algorithm terminates in O(m + n) time. 
+
+\subsection*{Proof:}
+We are using two instances of DFS which is known to terminate in O(m + n). Because no modification has added additional runtime to DFS beyond O(1) work, both instances still terminate in O(m + n). Because one instance of DFS is run after another, the runtime of the sum of the instances of DFS is O(m + n). Thus, the overall runtime of the algorithm is O(m + n). $\qed$
+
+\noindent\textcolor[RGB]{220,220,220}{\rule{\linewidth}{0.8pt}}
+
+\subsection*{Claim:} 
+The algorithm orients the edges of connected graph G with m $\geq$ n edges such that that indegree of every vertex is at least 1.
+
+\subsection*{Proof:}
+Consider arbitrary graph G with n vertices and m $\geq$ n edges. 
+We know from HW2 P3 that any graph with m $\geq$ n edges contains a cycle. So, G contains a cycle. We also know from HW2 P3 that any graph with a cycle has at least one edge that can be removed from that cycle without disconnecting the graph. Remove such an edge e between vertices \{u, v\} from G to create graph G' where G' = G - e. We know DFS can reach every connected vertex in G' starting from u. G' is connected so we can reach every vertex in G' from u. Use DFS starting from u. For every edge between vertices \{x, y\} in G' encountered by DFS, draw a directed edge (x, y). Because G' is connected we know v will be encountered by DFS from another vertex z with an incoming edge (z, v). We now know that all vertices in G' except for u have an incoming edge. Copy the direction of every edge in G' to the corresponding edge in G such that all vertices in G have at least one incoming edge except for u. Add the directed edge (v, u) to G. Thus, all vertices in G have at least one incoming edge. $\qed$
+
+\end{document}

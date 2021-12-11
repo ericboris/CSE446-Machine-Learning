@@ -1,0 +1,11 @@
+\section{}
+We are given the probability of having a certain disease $P(x) = 0.0001$. From this we know the probability of not having the disease $P(\overline{x}) = 0.9999$. We are given the probability of testing positive given that we have the disease $P(y | x) = 0.99$ and we are given the probability of testing negative given that we don't have the disease $P(\overline{y} | \overline{x}) = 0.99$. From these we know the probability of testing positive given that we don't have the disease $P(y | \overline{x}) = 0.01$ and the probability of testing negative given that have the disease $P(\overline{y} | x) = 0.01$. We use Bayes' Rule to determine our probability of having the disease given that we test positive $P(x | y)$.
+
+\begin{align*}
+    P(x | y)
+	&= \frac{P(x, y)}{P(y)} \tag*{Bayes' Rule} \\
+	&= \frac{P(x)P(y|x)}{P(\overline{x})P(y | \overline{x}) + P(x)P(y|x)} \\
+	&= \frac{(0.0001)(0.99)}{(0.9999)(0.01) + (0.0001)(0.99)} \tag*{Substitution} \\
+	&= \frac{1}{102} \\
+	&\approx 0.0098
+\end{align*}

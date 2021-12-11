@@ -1,0 +1,47 @@
+% 3.
+\section{}
+
+% 3.a.
+\subsection{}
+
+Show that $h(z) = \int_{-\infty}^{\infty} f(x) g(z - x) \,dx$.
+\begin{align*}
+    H(z) &= P(Z \leq z) \tag*{Let H() be the CDF of Z} \\
+    H(z) &= P(X + Y \leq z) \\
+    H(z) &= \int\int_{x+y\leq z} F_{XY}(x, y) \,dx \,dy \\ 
+    H(z) &= \int_{- \infty}^{\infty} ( \int_{- \infty}^{z-x} f(x)f(y) \,dy ) \,dx \\ 
+    H(z) &= \int_{- \infty}^{\infty} f(x) (\int_{- \infty}^{z-x} g(y) \,dy) \,dx \\
+    H(z) &= \int_{- \infty}^{\infty} f(x) G(z - x) \,dx \tag*{Let G() be the CDF of Y} \\
+    \frac{\,d}{\,dz}H(z) &= \frac{\,d}{\,dz}(\int_{- \infty}^{\infty} f(x) G(z - x) \,dx) \\
+    h(z) &= \int_{- \infty}^{\infty} f(x) \frac{\,d}{\,dz}(G(z-x)) \,dx \\
+    h(z) &= \int_{- \infty}^{\infty} f(x) g(z-x) \,dx
+\end{align*}
+
+% 3.b.
+\subsection{}
+
+Simplify h(z).
+\begin{align*}	
+    h(z) &= \int_{-\infty}^{\infty} f(x) g(z-x) \,dx \tag*{From a.} \\
+	&= \int_0^1 g(z-x) \,dx \tag*{Since f(x)=0 for x$<$0 and x$>$1 and f(x)=1 for x $\in$ [0,1]}
+\end{align*}
+
+There are four cases to consider:
+\begin{enumerate}
+    \item $z<0$: When $z<0$ then $g(z-x)=0$ and thus $h(z)=0$.
+    \item $0 \leq z \leq 1$: When $0 \leq z \leq 1$ then $h(z) = \int_0^z g(z-x) \,dx$ and thus $h(z) = z$.
+    \item $1 < z \leq 2$: When $1 < z \leq 2$ then $h(z) = \int_{z-1}^1 g(z-x) \,dx$ and thus $h(z) = 2-z$.
+    \item $z>2$: When $z>2$ then $g(z-x)=0$ and thus $h(z)=0$.
+\end{enumerate}
+
+Thus: 
+$$
+h(z) = \left\{
+    \begin{array}{ll}
+	z & \mbox{if } 0 \leq z \leq 1 \\
+	2-z & \mbox{if } 1 < z \leq 2 \\
+	0 & \mbox{otherwise}
+    \end{array}
+\right.
+$$
+

@@ -1,0 +1,21 @@
+\begin{quote}
+    Prove that $f(x) = (x^T Ax)^{\frac{1}{2}}$ is convex given that $A \in \R^{n \times n}$ is a symmetric positive definite matrix.\\
+
+Prove that $f(x)$ is a norm.
+Since $A$ is a real symmetric matrix, $A$ is orthogonally diagonizable.
+By spectral decomposition, there exist matrices $V, \Lambda \in \R^{n \times n}$ such that $V$ is orthogonal and $\Lambda = \textrm{diag}(\lambda_1, ..., \lambda_n)$ such that $A = V \Lambda V^T$. 
+Because $A$ is positive definite, for all $i \in [1, ..., n]$, $\lambda_i > 0$.
+Then $\Lambda^{\frac{1}{2}} = \textrm{diag}(\lambda_1^{\frac{1}{2}}, ..., \lambda_n^{\frac{1}{2}})$ holds.
+So we can write $f(x) = \| \Lambda V^T x \|_2$.
+Since $\Lambda V^T$ is invertible, $\lambda_n \|x \|_2^2 \leq \langle x, Ax \rangle \leq \lambda_1 \|x \|_2^2$.
+Which implies that $\sqrt{\lambda_n} \|x \|_2^2 \leq \|x \|_A \leq \sqrt{\lambda_1} \|x \|_2^2$.
+Hence, $f(x) = \| \Lambda^{\frac{1}{2}} V^T x \|_2$. 
+Thus $f(x)$ is a norm.
+Prove that all norms are convex.
+By the definition of convexity, an arbitrary function $g(x)$ is convex if and only if sub-additivity holds. 
+Since $g(x)$ is a norm, the triangle inequality $\| \lambda x + (1 - \lambda)y \| \leq \lambda \|x \| + (1 - \lambda) \|y \|$ holds for all $x, y \in \R^n$ and $\lambda \in [1, 0]$ by problem 1a.
+By homogeneity then, $g(\lambda x +  (1 - \lambda) y) = \lambda g(x) + (1 - \lambda)g(y)$.
+Therefore, all norms are convex.
+And since $f(x)$ is a norm, $f(x)$ is convex. \\
+\end{quote}
+

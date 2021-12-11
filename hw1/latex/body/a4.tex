@@ -1,0 +1,14 @@
+\begin{itemize}
+    \item[] Find the likelihood function $l(\theta)$ of the Uniform distribution.
+    \begin{align*}
+	l(\theta) &= \prod_{i=1}^n \frac{1}{\theta} \, \mathbf{1} (x_i \in [0, \theta]) \\
+	    &= \frac{1}{\theta^n} \, \mathbf{1} (x_i \in [0, \theta])
+    \end{align*}
+    \item[] Note that for any maximum likelihood estimator $\theta_{{\rm MLE}}$ that the maximum of $l(\theta_{{\rm MLE}}) > 0$.
+    \item[] We know that $x_i \in [0, \theta]$ since otherwise $l(\theta) = 0$ by $\mathbf{1} (x_i \in [0, \theta])$. 
+    \item[] Now, consider that since $\frac{1}{\theta^n}$ decreases as $\theta$ increases, that $\theta_{{\rm MLE}} = \theta_{{\rm min}}$.
+    \item[] Note that $0 < \theta$ so $0 < \theta_{\rm min}$.
+    \item[] Since $x_i \in [0, \theta]$ then $x_i \leq \theta_{\rm min}$ .
+    \item[] We therefore conclude that $\theta_{\rm min} = \max_i x_i$.
+    \item[] Thus $$\boxed{ \theta_{\rm MLE} = \max_i x_i}$$
+\end{itemize}

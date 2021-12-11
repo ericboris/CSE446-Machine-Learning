@@ -1,0 +1,34 @@
+{\bf Problem 2}
+
+\begin{enumerate}
+    \item 
+	Use the SVD of X to show that $\widehat{w} > \widehat{w}_R$.
+	\begin{align*}
+	    \widehat{w} &> \widehat{w}_R \\
+	    \textrm{min}_w \| Xw - y \|_2^2 &> \textrm{min}_w \| Xw - y \|_2^2 + \lambda \| w \|_2^2 \\
+	    \left( X^T X \right)^{-1} X^T y &> \left( X^T X + \lambda I \right)^{-1} X^T y \\
+	    \left( X^T X \right)^{-1} &> \left( X^T X + \lambda I \right)^{-1} \\
+	    \left( V \Sigma^T U^T U \Sigma V^T \right)^{-1} &> \left( V \Sigma^T U^T U \Sigma V^T + \lambda I \right)^{-1} \tag*{Use SVD} \\
+	    V D^{-1} V^T &> V \left( D + \lambda I \right)^{-1} V^T \tag*{V is unitary and let $\Sigma^2 = D$ s.t. $D \in \R_+^d$}
+	\end{align*}
+	Thus, since $\lambda > 0$, $\widehat{w} > \widehat{w}_R$.
+    \item  
+	Show that $U U^T = U^T U = I$. \\
+	$U$ is a square matrix so by the spectral theorem it can by unitarily diagnalized.
+	Let $U = TIV^T$ such that $T,I,V \in \R^{n \times n}$ where $T, V$ have singular values equal to 1 and $I$ is the identity matrix.
+	Because $T$ and $V$ are unitary, 
+	    $$ T T^T = T^T T = V V^T = V^T V = I$$
+	Therefore
+	    $$ U U^T = T I V^T V I T^T = T I I T^T = T T^T = I $$
+	and
+	    $$ U^T U = V I T^T T I V^T = I T^T T I = T^T T = I $$
+	Thus 
+	    $$ U U^T = U^T U = I $$
+    \item
+	Show that $\| Ux \|_2 = \| x \|_2$ for any $x \in \R^n$. \\
+	Let $x \in \R^n$.
+	Then
+	    $$ \| Ux \|_2^2 = \left( Ux \right)^T \left( Ux \right) = x^T U^T U x = x^T x = \| x \|_2^2 $$
+	Taking the square root, it follows that
+	    $$ \| Ux \|_2 = \| x \|_2 $$	
+\end{enumerate}

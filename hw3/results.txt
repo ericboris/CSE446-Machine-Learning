@@ -1,0 +1,8 @@
+FFE model
+best valid acc: 0.804600
+test loss: 0.6292659948184882 Accuracy: 79.99
+
+FT model
+best valid acc: 0.908800
+test Loss: 0.4234968413222043 Accuracy: 90.73
+

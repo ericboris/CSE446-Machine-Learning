@@ -1,0 +1,40 @@
+3. You're a Reign FC fan, and the team is five games into its 2018 season. The
+number of goals scored by the team in each game so far are given below:
+
+\[
+  [2, 0, 1, 1, 2].
+\]
+Let's call these scores $x_1, \dots, x_5$. Based on your (assumed iid)
+data, you'd like to build a model to understand how many goals the
+Reign are likely to score in their next game. You decide to model the
+number of goals scored per game using a \emph{Poisson
+  distribution}. The Poisson distribution with parameter $\lambda$
+assigns every non-negative integer $x = 0, 1, 2, \dots$ a probability
+given by
+\[
+  \mathrm{Poi}(x | \lambda) = e^{-\lambda} \frac{\lambda ^ x}{x!}.
+\]
+So, for example, if $\lambda = 1.5$, then the probability that the
+Reign score 2 goals in their next game is
+$e^{-1.5} \times \frac{1.5^2}{2!} \approx 0.25$. To check your
+understanding of the Poisson, make sure you have a sense of whether
+raising $\lambda$ will mean more goals in general, or fewer.
+
+\begin{enumerate}
+\item \points{5} Derive an expression for the maximum-likelihood
+  estimate of the parameter $\lambda$ governing the Poisson
+  distribution, in terms of your goal counts $x_1, \dots,
+  x_5$. (Hint: remember that the log of the likelihood has the same
+  maximum as the likelihood function itself.)
+    \input{body/a3_a.tex}
+    
+\item \points{5} Suppose the team scores 4 goals in its sixth
+  game. Derive the same expression for the estimate of the parameter
+  $\lambda$ as in the prior example, now using the 6 games
+  $x_1, \ldots, x_5, x_6 =4$.
+    \input{body/a3_b.tex}
+
+\item \points{5} Given the goal counts, please give  numerical
+  estimates of $\lambda$ after 5 and 6 games.
+    \input{body/a3_c.tex}
+\end{enumerate}

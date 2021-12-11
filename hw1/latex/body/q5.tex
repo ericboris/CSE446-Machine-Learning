@@ -1,0 +1,56 @@
+5. Suppose we have $N$ labeled samples $S = \{(x_i,y_i)\}_{i=1}^N$
+drawn i.i.d. from an underlying distribution $\mathcal{D}$. Suppose we
+decide to break this set into a set $S_{\textrm{train}}$ of size
+$N_{\textrm{train}}$ and a set $S_{\textrm{test}}$ of size
+$N_{\textrm{test}}$ samples for our training and test set, so
+$N = N_{\textrm{train}} + N_{\textrm{test}}$, and $S = S_{\textrm{train}} \cup S_{\textrm{test}}$.  Recall the definition
+of the true least squares error of $f$:
+\[
+  \epsilon(f) = 
+  \mathbb{E}_{(x,y) \sim \mathcal{D}} [ (f(x) -y)^2 ],
+\]
+where the subscript $(x,y) \sim \mathcal{D}$ makes clear that our
+input-output pairs are sampled according to $\mathcal{D}$.
+Our training and test losses are defined as:
+\begin{align*}
+\widehat{\epsilon}_{\textrm{train}}(f) &=
+\frac{1}{N _{\textrm{train}}} \sum_{(x,y)\in S_{\textrm{train}}}     (f(x) -y)^2
+\\
+  \widehat{\epsilon}_{\textrm{test}}(f) &=
+  \frac{1}{N _{\textrm{test}}} \sum_{(x,y)\in S_{\textrm{test}}}     (f(x) -y)^2  
+\end{align*}
+We then train our algorithm (for example, using linear least squares
+regression) using the training set to obtain $\widehat{f}$.
+
+
+\begin{enumerate}
+\item \points{6} (bias: the test error) Define $\E_{\textrm{train}}$ as the expectation over all training set $S_{\textrm{train}}$ and $\E_{\textrm{test}}$ as the expectation over all testing set $S_{\textrm{test}}$. For all fixed $f$ (before we've seen any data) show that
+\[\E_{\textrm{train}}[ \widehat{\epsilon}_{\textrm{train}}(f) ] = \E_{\textrm{test}}[ \widehat{\epsilon}_{\textrm{test}}(f) ] = \epsilon(f).\] 
+Use a similar line of reasoning to show that the test error is an
+unbiased estimate of our true error for $\hat{f}$. Specifically, show
+that:
+\[
+  \mathbb{E}_{\textrm{test}}[\widehat{\epsilon}_{\textrm{test}}(\widehat{f})] = \epsilon(\widehat{f})
+\]
+\input{body/a5_a.tex}
+
+\item \points{5} (bias: the train/dev error) Is the above equation true (in general) with regards to the
+  training loss? Specifically, does $\mathbb{E}_{\textrm{train}}[\widehat{\epsilon}_{\textrm{train}}(\widehat{f})]$ equal $\mathbb{E}_{\textrm{train}}[ \epsilon(\widehat{f})]$? If so, why? If not, give a clear argument as
+  to where your previous argument breaks down.
+\input{body/a5_b.tex}
+
+\item \points{8} Let $\mathcal{F} = (f_1, f_2,\dots)$ be a collection of functions and let $\widehat{f}_{\textrm{train}}$ minimize the training error such that $\widehat{\epsilon}_{\textrm{train}}(\widehat{f}_{\textrm{train}}) \leq \widehat{\epsilon}_{\textrm{train}}(f)$ for all $f \in \mathcal{F}$.
+Show that
+\begin{align*}
+\E_{\text{train}}[ \widehat{\epsilon}_{\textrm{train}}(\widehat{f}_{\textrm{train}}) ] \leq \E_{\text{train,test}}[ \widehat{\epsilon}_{\textrm{test}}(\widehat{f}_{\textrm{train}}) ].
+\end{align*}
+(Hint: 
+note that
+\begin{align*}
+\E_{\text{train,test}}[ \widehat{\epsilon}_{\textrm{test}}(\widehat{f}_{\textrm{train}}) ] &= \sum_{f \in \mathcal{F}} \E_{\text{train,test}}[ \widehat{\epsilon}_{\textrm{test}}(f) \1\{ \widehat{f}_{\textrm{train}} = f\}] \\
+&= \sum_{f \in \mathcal{F}} \E_{\text{test}}[ \widehat{\epsilon}_{\textrm{test}}(f) ] \E_{\text{train}}[ \1\{\widehat{f}_{\textrm{train}} = f \}]\\ &= \sum_{f \in \mathcal{F}} \E_{\text{test}}[ \widehat{\epsilon}_{\textrm{test}}(f) ] \P_{\text{train}}(\widehat{f}_{\textrm{train}} = f )
+\end{align*}
+where the second equality follows from the independence between the train and test set.)\\
+\input{body/a5_c.tex}
+
+\end{enumerate}  

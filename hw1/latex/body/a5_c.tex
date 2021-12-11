@@ -1,0 +1,21 @@
+\begin{quote}
+    {\bf Lemma}: $\widehat{\epsilon}_{\textrm{train}} ( \widehat{f}_{\textrm{train}} ) \leq \widehat{\epsilon}_{\textrm{train}} (f) \, \forall f \in \mathcal{F} \implies \E \left[ \widehat{\epsilon}_{\textrm{train}} ( \widehat{f}_{\textrm{train}} ) \right] \leq \E \left[ \widehat{\epsilon}_{\textrm{train}} (f) \right] \, \forall f \in \mathcal{F}$
+\end{quote}
+
+\begin{align*}
+    \E_{\textrm{train}} \left[ \widehat{\epsilon}_{\textrm{train}} ( \widehat{f}_{\textrm{train}} ) \right]
+	&= \E_{\textrm{train}} \left[ \widehat{\epsilon}_{\textrm{train}} ( \widehat{f}_{\textrm{train}} ) \right] * 1 \tag*{Trivially} \\
+	&= \E_{\textrm{train}} \left[ \widehat{\epsilon}_{\textrm{train}} ( \widehat{f}_{\textrm{train}} ) \right] \sum_{f \in \mathcal{F}} \P \left( \widehat{f}_{\textrm{train}} = f \right) \tag*{Sum of PMF = 1} \\
+	&= \sum_{f \in \mathcal{F}} \E_{\textrm{train}} \left[ \widehat{\epsilon}_{\textrm{train}} ( \widehat{f}_{\textrm{train}} ) \right] \P \left( \widehat{f}_{\textrm{train}} = f \right) \tag*{By Linearity of Expectation} \\
+	&\leq \sum_{f \in \mathcal{F}} \E_{\textrm{train}} \left[ \widehat{\epsilon}_{\textrm{train}} ( f ) \right] \P \left( \widehat{f}_{\textrm{train}} = f \right) \tag*{From above lemma} \\
+	&= \sum_{f \in \mathcal{F}} \E_{\textrm{test}} \left[ \widehat{\epsilon}_{\textrm{test}} ( f ) \right] \P \left( \widehat{f}_{\textrm{train}} = f \right) \tag*{Proven in a.} \\
+	&= \sum_{f \in \mathcal{F}} \E_{\textrm{test}} \left[ \widehat{\epsilon}_{\textrm{test}} ( f ) \right] \E_{\textrm{train}} \left[ \1 \{ \widehat{f}_{\textrm{train}} = f \} \right] \tag*{Given in hint} \\
+	&= \sum_{f \in \mathcal{F}} \E_{\textrm{train,test}} \left[ \widehat{\epsilon}_{\textrm{test}} ( f ) \,\1 \{ \widehat{f}_{\textrm{train}} = f \} \right] \tag*{Given in hint} \\
+	&= \E_{\textrm{train,test}} \left[ \widehat{\epsilon}_{\textrm{test}} ( \widehat{f}_{\textrm{train}} ) \right] \tag*{Given in hint}
+\end{align*}
+
+\begin{quote}
+    Thus,$$\boxed{ \E_{\textrm{train}} \left[ \widehat{\epsilon}_{\textrm{train}} ( \widehat{f}_{\textrm{train}} ) \right] \leq \E_{\textrm{train,test}} \left[ \widehat{\epsilon}_{\textrm{test}} ( \widehat{f}_{\textrm{train}} ) \right] }$$
+\end{quote}
+
+

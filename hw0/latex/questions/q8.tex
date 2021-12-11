@@ -1,0 +1,16 @@
+% 8.
+\section{}
+
+Given a random variable X with $E[X]=\mu$ and $E[(X-\mu)^2]=\sigma^2$. For any $x\geq0$ show that $P(X\geq \mu + \sigma x) \leq \frac{1}{x^2}$.
+\begin{align*}
+    P(X \geq x) &\leq \frac{E[X]}{x} \\	
+    P(X^2 \geq x^2) &\leq \frac{E[X^2]}{x^2} \\
+    P((x - \mu)^2 \geq x^2) &\leq \frac{E[(x - \mu)^2}{x^2} \\
+    P(|x - \mu| \geq x) &\leq \frac{E[(x - \mu)^2}{x^2} \\
+    P(|x - \mu| \geq x) &\leq \frac{\sigma^2}{x^2} \\
+    P(|x - \mu| \geq \sigma x) &\leq \frac{1}{x^2} \\
+    P(|x - \mu| \geq \sigma x) &= P(x \geq \mu + \sigma x) + P(x \geq \mu - \sigma x) \\ %TODO nest this
+    P(|x - \mu| \geq \sigma x) &\geq P(x \geq \mu + \sigma x) \\
+    P(|x - \mu| \leq \sigma x) &\leq \frac{1}{x^2} \\
+    P(x \leq \mu + \sigma x) \leq \frac{1}{x^2} \\
+\end{align*}

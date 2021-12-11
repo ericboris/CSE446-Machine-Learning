@@ -1,0 +1,59 @@
+% 6.
+\section{}
+
+% 6.a.
+\subsection{}
+
+Find $E[\hat{F}_n(x)]$.
+\begin{align*}
+    E[\hat{F}_n(x)] &= E[\frac{1}{n} \sum_{i=1}^n \mathbf{1}(X_i \leq x)] \\
+	&= \frac{1}{n} \sum_{i=1}^n E[\mathbf{1}(X_i \leq x)] \\
+	&= \frac{1}{n} \sum_{i=1}^n F(x) \tag*{$X_i$ is i.i.d for $i \in [1,n]$} \\
+	&= \frac{1}{n} n F(x) \\
+	&= F(x)
+\end{align*}
+
+% 6.b.
+\subsection{}
+
+Show $Var(\hat{F}_n(x)) = \frac{F(x)(1 - F(x))}{n}$.
+\begin{align*}
+    Var(\hat{F}_n(x)) &= Var(\frac{1}{n} \sum_{i=1}^n \mathbf{1} (X_i \leq x)) \\
+	&= \frac{1}{n^2} \sum_{i=1}^n Var(\mathbf{1}(X_i \leq x)) \\
+	&= \frac{1}{n^2} \sum_{i=1}^n (E[(\mathbf{1}(X_i \leq x))^2] - (E[\mathbf{1}(X_i \leq x)])^2) \\
+	&= \frac{1}{n^2} \sum_{i=1}^n (E[\mathbf{1}(X_i \leq x)] - (E[\mathbf{1}(X_i \leq x)])^2) \\
+	&= \frac{1}{n^2} \sum_{i=1}^n (F(x) - (F(x))^2) \tag*{$X_i$ is i.i.d for $i \in [1,n]$} \\
+	&= \frac{1}{n^2} \sum_{i=1}^n F(x)(1 - F(x)) \\
+	&= \frac{1}{n^2} n F(x)(1 - F(x)) \\
+	&= \frac{F(x)(1 - F(x))}{n}
+\end{align*}
+
+% 6.c.
+\subsection{}
+
+Show that for all $x \in \mathbf{R}$ that $E[(\hat{F}_n(x) - F(x))^2] \leq \frac{1}{4n}$. Suppose $x \in \mathbf{R}$.
+We know from b.:
+\begin{align*}
+    E[(\hat{F}_n(x) - F(x))^2] &= Var(\hat{F}_n(x)) \\
+	&= \frac{F(x)(1-F(x)}{n} \\
+	&= \frac{F(x)-F(x)^2}{n}
+\end{align*}
+
+We know $max\{\frac{F(x)-F(x)^2}{n}\}$ occurs at $max\{F(x)-F(x)^2\}$.
+To find $max\{F(x)-F(x)^2\}$ we define $g(F(x))= F(x) - F(x)^2$, and take $g'(F(x))$ and $g''(F(x))$.
+\begin{align*}
+    g(F(x)) &= F(x) - F(x)^2 \\
+    g'(F(x)) &= 1 - 2F(x) \\
+    g''(F(x)) &= -2
+\end{align*}
+
+From $g'(F(x))$ we see a convexity at $F(x)=\frac{1}{2}$ and from $g''(F(x))$ we see that that convexity is a maximum.
+Therefore $max\{F(x)-F(x)^2\} = (\frac{1}{2}) - (\frac{1}{2})^4 = \frac{1}{4}$ and $max\{\frac{F(x)-F(x)^2}{n}\} = \frac{(\frac{1}{4})}{n} = \frac{1}{4n}$.
+Thus, $E[(\hat{F}_n(x) - F(x))^2] \leq \frac{1}{4n}$ since $max\{\frac{F(x)-F(x)^2}{n}\} = E[(\hat{F}_n(x) - F(x))^2]$.
+
+ 
+
+
+
+
+

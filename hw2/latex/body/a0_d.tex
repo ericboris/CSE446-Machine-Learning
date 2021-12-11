@@ -1,0 +1,9 @@
+k-fold cross validation works by dividing the training data into k subsets. 
+For k iterations, one of the k subsets is used as a test set and the model is trained over the remaining k-1 subsets. 
+The resulting error is found by averaging the error over the k iterations. 
+{\bf Because the training set using k-fold cross is smaller}, k-1 than for example n-1 as in LOOCV, {\bf the bias is higher}. 
+But training time is reduced for k-fold cross from LOOCV.
+In short, increasing k increases the size of the training set and therefore, increases training time and reduces bias. 
+{\bf k=10} could be a reasonable choice because k is sufficiently large to have {\bf low bias but fast training times}.
+
+

@@ -1,0 +1,23 @@
+\begin{itemize}
+    \item[] Given that $Z \sim U[-0.5, 0.5]$, we write the PDF as:
+	\begin{equation*}
+	    P(Z = z) = 
+	    \left\{
+		\begin{array}{ll}
+		    1 & \lvert z \rvert \leq 0.5 \\
+		    0 & \textrm{otherwise}
+		\end{array}
+	    \right.
+	\end{equation*}
+    \item[] Given that $Y = Xw + Z \implies Z = Y - Xw$, we write the PDF as:
+	\begin{equation*}
+	    P(Y = y \vert X = x) = 
+	    \left\{
+		\begin{array}{ll}
+		    1 & \lvert y - xw \rvert \leq 0.5 \\
+		    0 & \textrm{otherwise}
+		\end{array}
+	    \right.
+	\end{equation*}
+    \item[] Thus $$ \boxed{ Y \vert X \sim U[-0.5, 0.5] }$$
+\end{itemize}
